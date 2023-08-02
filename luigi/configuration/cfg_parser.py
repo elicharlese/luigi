@@ -101,7 +101,7 @@ class LuigiConfigParser(BaseParser, ConfigParser):
             return {}
 
     def set(self, section, option, value=None):
-        if not ConfigParser.has_section(self, section):
+        if not ConfigParser.has_section(self, section) and section != self.default_section:
             ConfigParser.add_section(self, section)
 
         return ConfigParser.set(self, section, option, value)
